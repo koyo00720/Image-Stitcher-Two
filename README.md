@@ -1,4 +1,4 @@
-# Image_Stitch_Two
+# Image Stitcher Two
 
 Qt + OpenCV based image stitching tool.
 
