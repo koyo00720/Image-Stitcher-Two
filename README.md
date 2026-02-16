@@ -1,6 +1,6 @@
 # Image_Stitch_Two
 
-Qt + OpenCV application.
+Qt + OpenCV based image stitching tool.
 
 ## Build
 - Qt 6.10.2 (MinGW 64-bit)
