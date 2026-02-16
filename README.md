@@ -10,6 +10,5 @@ Qt + OpenCV application.
 ## Third-party libraries
 This project uses:
 - Qt — LGPL v3
-- OpenCV — Apache License 2.0
-
+- OpenCV — Apache License 2.0  
 Each library is distributed under its own license.
