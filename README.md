@@ -11,4 +11,5 @@ Qt + OpenCV application.
 This project uses:
 - Qt — LGPL v3
 - OpenCV — Apache License 2.0
+
 Each library is distributed under its own license.
