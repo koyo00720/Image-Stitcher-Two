@@ -15,5 +15,5 @@ Each library is distributed under its own license.
 
 ## Contributing
 
-This repository is not accepting pull requests.  
+This repository is not accepting pull requests.
 Please do not submit contributions.
