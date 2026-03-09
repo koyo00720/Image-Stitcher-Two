@@ -194,7 +194,7 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=C:/Users/koyo0/Documents/Qt/Imace_Stich_Two/build/Desktop_Qt_6_10_2_MinGW_64_bit-Release/.qtc/package-manager/auto-setup.cmake
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Image_Stitch_Two
+CMAKE_PROJECT_NAME:STATIC=Image_Stitcher_Two
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=0.1
@@ -302,6 +302,15 @@ Image_Stitch_Two_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 Image_Stitch_Two_SOURCE_DIR:STATIC=C:/Users/koyo0/Documents/Qt/Imace_Stich_Two
+
+//Value Computed by CMake
+Image_Stitcher_Two_BINARY_DIR:STATIC=C:/Users/koyo0/Documents/Qt/Imace_Stich_Two/build/Desktop_Qt_6_10_2_MinGW_64_bit-Release
+
+//Value Computed by CMake
+Image_Stitcher_Two_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Image_Stitcher_Two_SOURCE_DIR:STATIC=C:/Users/koyo0/Documents/Qt/Imace_Stich_Two
 
 //Additional directories where find(Qt6 ...) host Qt components
 // are searched

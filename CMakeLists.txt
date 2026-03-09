@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(Image_Stitch_Two VERSION 0.1 LANGUAGES CXX)
+project(Image_Stitcher_Two VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -28,36 +28,37 @@ set(PROJECT_SOURCES
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(Image_Stitch_Two
+    qt_add_executable(Image_Stitcher_Two
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         maincampus.h maincampus.cpp
         droparea.h droparea.cpp
+        app.rc
     )
 # Define target properties for Android with Qt 6 as:
-#    set_property(TARGET Image_Stitch_Two APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#    set_property(TARGET Image_Stitcher_Two APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(Image_Stitch_Two SHARED
+        add_library(Image_Stitcher_Two SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(Image_Stitch_Two
+        add_executable(Image_Stitcher_Two
             ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
-target_link_libraries(Image_Stitch_Two PRIVATE
+target_link_libraries(Image_Stitcher_Two PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Concurrent
     ${OpenCV_LIBS}
 )
-target_include_directories(Image_Stitch_Two PRIVATE
+target_include_directories(Image_Stitcher_Two PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${OpenCV_INCLUDE_DIRS}
 )
@@ -66,9 +67,9 @@ target_include_directories(Image_Stitch_Two PRIVATE
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
 if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Image_Stitch_Two)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Image_Stitcher_Two)
 endif()
-set_target_properties(Image_Stitch_Two PROPERTIES
+set_target_properties(Image_Stitcher_Two PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -77,18 +78,22 @@ set_target_properties(Image_Stitch_Two PROPERTIES
 )
 
 include(GNUInstallDirs)
-install(TARGETS Image_Stitch_Two
+install(TARGETS Image_Stitcher_Two
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(Image_Stitch_Two)
+    qt_finalize_executable(Image_Stitcher_Two)
 endif()
 
-target_compile_options(Image_Stitch_Two PRIVATE
+target_compile_options(Image_Stitcher_Two PRIVATE
     $<$<AND:$<CONFIG:Release>,$<CXX_COMPILER_ID:GNU,Clang>>:-O3 -mavx2 -mfma>
     $<$<AND:$<CONFIG:Release>,$<CXX_COMPILER_ID:MSVC>>:/O2 /arch:AVX2>
 )
 
+if (WIN32)
+  enable_language(RC)
+  target_sources(Image_Stitcher_Two PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/app.rc)
+endif()
